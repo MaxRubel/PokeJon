@@ -6,22 +6,23 @@ const GameContext = createContext();
 
 // Create a provider component
 export const GameContextProvider = ({ children }) => {
-  const [player1, setPlayer1] = useState(false);
-  const [player2, setPlayer2] = useState(false);
 
-  const updatePlayer1 = (input) => {
-    setPlayer1(input);
+  const [isPlayer, setIsPlayer] = useState(null)
+
+
+  const selectPlayer = (num) => {
+    setIsPlayer(num)
   };
 
-  const updatePlayer2 = (input) => {
-    setPlayer2(input);
-  };
+  const clearGame = () => {
+    setIsPlayer(null)
+  }
+
 
   const gameObject = {
-    player1,
-    player2,
-    updatePlayer1,
-    updatePlayer2,
+    isPlayer,
+    selectPlayer,
+    clearGame
   };
 
   return (
