@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "../styles/newGame.scss";
 import GameContext from "../GameContext";
 import { useContext, useEffect, useState } from "react";
@@ -11,11 +11,14 @@ export default function NewGame() {
 
   const [searchParams] = useSearchParams();
   const gameId = searchParams.get("gameId");
+
   const [gameData, setGameData] = useState({
     player1: false,
     player2: false
   })
   const { isPlayer, selectPlayer } = useContext(GameContext);
+
+  const navigate = useNavigate()
 
   useEffect(() => { //firebase listener function
     const listenerRef = db.ref('games').orderByChild('gameId').equalTo(gameId);
@@ -36,6 +39,14 @@ export default function NewGame() {
   }, [gameId]);
 
 
+  useEffect(() => { //start game
+    if (gameData.player1 && gameData.player2) {
+      updateGame({ gameId: name });
+      navigate(`/game?gameId=${gameId}`);
+    }
+  }, [gameData])
+
+
   const handlePlayer1 = () => {
     if (!isPlayer) {
       selectPlayer(1)
@@ -47,18 +58,19 @@ export default function NewGame() {
   };
 
   const handlePlayer2 = () => {
-    if (!isPlayer) {
-      selectPlayer(2)
-      const payload = { gameId, player2: true };
-      updateGame(payload);
-    } else {
-      window.alert('you are already playing')
-    }
+    // if (!isPlayer) {
+    selectPlayer(2)
+    const payload = { gameId, player2: true };
+    updateGame(payload);
+    // } 
+    // else {
+    //   window.alert('you are already playing')
+    // }
   };
 
   return (
     <>
-      <div className="new-game-container">
+      <div className="new-game-container center-container">
         {gameData.player1 ? (
           <button
             className="width300"

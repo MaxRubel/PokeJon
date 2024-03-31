@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import NewGame from "./pages/NewGame.jsx";
 import { GameContextProvider } from "./GameContext.jsx";
+import Game from "./pages/Game.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/newGame",
     element: <NewGame />,
+  },
+  {
+    path: "/game",
+    element: <Game />,
   },
 ]);
 

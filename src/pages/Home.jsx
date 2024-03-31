@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="home-container">
+      <div className="center-container">
         <div className="big-shrimp">🍤🍤🍤🍤</div>
         <div id="button div">
           <button
