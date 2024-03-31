@@ -15,6 +15,7 @@ add a new object like this in main.jsx (You'll see where).
 There's also a context wrapper that is storing what player number the current user is: 
 
   import GameContext from "../GameContext";
-  const { isPlayer, selectPlayer, clearGame } = useContext(GameContext)
+  const { isPlayer<number>, selectPlayer<function>, clearGame<function> } = useContext(GameContext)
 
   and the listener function to connect the game to the server is already in NewGame.jsx 
+mmhmm
