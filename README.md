@@ -18,3 +18,4 @@ There's also a context wrapper that is storing what player number the current us
   const { isPlayer<number>, selectPlayer<function>, clearGame<function> } = useContext(GameContext)
 
   and the listener function to connect the game to the server is already in NewGame.jsx 
+mmhmm
