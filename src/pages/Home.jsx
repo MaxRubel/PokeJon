@@ -21,7 +21,7 @@ export default function Home() {
 
     createNewGame(payload).then(({ name }) => {
       updateGame({ gameId: name });
-      navigate(`/NewGame?gameId=${name}`);
+      navigate(`/newGame?gameId=${name}`);
     });
   };
 
