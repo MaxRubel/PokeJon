@@ -69,7 +69,7 @@ export default function NewGame() {
   };
 
   const handleShare = () => {
-    navigator.clipboard.writeText(`https://pokejon.netlify.app/NewGame?gameId=${gameId}`).then(() => {
+    navigator.clipboard.writeText(`https://pokejon.netlify.app/newGame?gameId=${gameId}`).then(() => {
       window.alert('Game Link Copied!')
     })
   }
