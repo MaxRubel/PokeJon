@@ -68,9 +68,18 @@ export default function NewGame() {
     // }
   };
 
+  const handleShare = () => {
+    navigator.clipboard.writeText(`poo poo poo`).then(() => {
+      window.alert('Game Link Copied!')
+    })
+  }
+
   return (
     <>
       <div className="new-game-container center-container">
+        <button onClick={handleShare}>
+          Share Link
+        </button>
         {gameData.player1 ? (
           <button
             className="width300"
