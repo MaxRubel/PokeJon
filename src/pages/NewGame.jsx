@@ -48,13 +48,13 @@ export default function NewGame() {
 
 
   const handlePlayer1 = () => {
-    if (!isPlayer) {
-      selectPlayer(1)
-      const payload = { gameId, player1: true };
-      updateGame(payload);
-    } else {
-      window.alert('you are already playing')
-    }
+    // if (!isPlayer) {
+    selectPlayer(1)
+    const payload = { gameId, player1: true };
+    updateGame(payload);
+    // } else {
+    //   window.alert('you are already playing')
+    // }
   };
 
   const handlePlayer2 = () => {
@@ -69,7 +69,7 @@ export default function NewGame() {
   };
 
   const handleShare = () => {
-    navigator.clipboard.writeText(`poo poo poo`).then(() => {
+    navigator.clipboard.writeText(`https://pokejon.netlify.app/NewGame?gameId=${gameId}`).then(() => {
       window.alert('Game Link Copied!')
     })
   }
