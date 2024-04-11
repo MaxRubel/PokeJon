@@ -9,7 +9,6 @@ export const GameContextProvider = ({ children }) => {
 
   const [isPlayer, setIsPlayer] = useState(null)
 
-
   const selectPlayer = (num) => {
     setIsPlayer(num)
   };
@@ -17,7 +16,6 @@ export const GameContextProvider = ({ children }) => {
   const clearGame = () => {
     setIsPlayer(null)
   }
-
 
   const gameObject = {
     isPlayer,

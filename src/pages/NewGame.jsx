@@ -8,16 +8,13 @@ import firebase from "firebase/compat/app";
 
 export default function NewGame() {
   const db = firebase.database();
-
   const [searchParams] = useSearchParams();
   const gameId = searchParams.get("gameId");
-
   const [gameData, setGameData] = useState({
     player1: false,
     player2: false
   })
   const { isPlayer, selectPlayer } = useContext(GameContext);
-
   const navigate = useNavigate()
 
   useEffect(() => { //firebase listener function
@@ -41,7 +38,6 @@ export default function NewGame() {
 
   useEffect(() => { //start game
     if (gameData.player1 && gameData.player2) {
-      updateGame({ gameId: name });
       navigate(`/game?gameId=${gameId}`);
     }
   }, [gameData])
